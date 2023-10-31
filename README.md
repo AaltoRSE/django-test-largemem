@@ -5,7 +5,7 @@ To run:
 - `gunicorn` in this directory
 - Test: `/usr/bin/time -f %e curl http://localhost:8000`
 
-To see how it works: `git grep DEMO`
+To see the most important lines: `git grep DEMO`
 
 - `largemem/views.py` allocates a large array.
 - It also has a view that returns a random value from it.  The view
@@ -18,3 +18,8 @@ To see how it works: `git grep DEMO`
   memory once.
 - Now, multiple workers can serve requests at the same time, with only
   one copy of the array in memory.
+
+Other notes:
+- Nothing here should be special to Django or gunicorn... but the
+  web software has to be made in a way that forks all from one process
+  and lets you import at the start.
