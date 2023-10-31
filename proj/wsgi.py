@@ -11,6 +11,10 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+# DEMO: this pre-loads the data.  It seems that django doesn't recursively
+# DEMO: import the other modules at load-time.
+import largemem.views # DEMO
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj.settings')
 
 application = get_wsgi_application()
